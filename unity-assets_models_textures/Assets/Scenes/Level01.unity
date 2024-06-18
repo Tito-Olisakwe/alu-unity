@@ -548,6 +548,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4989861003266021693, guid: e8a7747da60f54f44bef1ee2f74f6050, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989861003266021693, guid: e8a7747da60f54f44bef1ee2f74f6050, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989861003266021693, guid: e8a7747da60f54f44bef1ee2f74f6050, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5346797774215202173, guid: e8a7747da60f54f44bef1ee2f74f6050, type: 3}
       propertyPath: m_Name
       value: TimerCanvas
