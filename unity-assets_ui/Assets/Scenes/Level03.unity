@@ -1060,6 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 775025429}
+  isInverted: 1
 --- !u!114 &775025435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2924,6 +2925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 775025429}
+  isInverted: 0
 --- !u!1001 &2013071625
 PrefabInstance:
   m_ObjectHideFlags: 0

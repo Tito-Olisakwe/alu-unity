@@ -1,16 +1,52 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Handles the functionality for the Options menu, including navigating back to the previous scene.
-/// </summary>
 public class OptionsMenu : MonoBehaviour
 {
+    public Toggle invertYToggle;
+    private bool isInverted;
+
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("isInverted"))
+        {
+            isInverted = PlayerPrefs.GetInt("isInverted") == 1;
+            invertYToggle.isOn = isInverted;
+        }
+        else
+        {
+            isInverted = false;
+            invertYToggle.isOn = false;
+        }
+    }
+
     /// <summary>
-    /// Loads the Main Menu scene when the Back button is clicked.
+    /// Apply the changes made in the options menu and return to the previous scene.
+    /// </summary>
+    public void Apply()
+    {
+        isInverted = invertYToggle.isOn;
+        PlayerPrefs.SetInt("isInverted", isInverted ? 1 : 0);
+        PlayerPrefs.Save();
+        ReturnToPreviousScene();
+    }
+
+    /// <summary>
+    /// Discard changes and return to the previous scene.
     /// </summary>
     public void Back()
     {
-        SceneManager.LoadScene("MainMenu");
+        ReturnToPreviousScene();
+    }
+
+    /// <summary>
+    /// Helper method to load the previous scene.
+    /// </summary>
+    private void ReturnToPreviousScene()
+    {
+        Time.timeScale = 1f;
+        string previousScene = PlayerPrefs.GetString("PreviousScene", "MainMenu"); 
+        SceneManager.LoadScene(previousScene);
     }
 }

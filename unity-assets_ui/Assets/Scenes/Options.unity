@@ -2251,6 +2251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699463cc879c00e48acba76f6e37a927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invertYToggle: {fileID: 12705570}
 --- !u!1 &2120219464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2509,34 @@ PrefabInstance:
     - target: {fileID: 4060125135087673307, guid: b27953c82fed93041af3b404372a8c5d, type: 3}
       propertyPath: m_Name
       value: ApplyButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308378306403012409, guid: b27953c82fed93041af3b404372a8c5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308378306403012409, guid: b27953c82fed93041af3b404372a8c5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308378306403012409, guid: b27953c82fed93041af3b404372a8c5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2061136276}
+    - target: {fileID: 7308378306403012409, guid: b27953c82fed93041af3b404372a8c5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308378306403012409, guid: b27953c82fed93041af3b404372a8c5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Apply
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308378306403012409, guid: b27953c82fed93041af3b404372a8c5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308378306403012409, guid: b27953c82fed93041af3b404372a8c5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
