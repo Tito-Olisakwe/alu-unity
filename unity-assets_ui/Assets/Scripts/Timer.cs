@@ -4,12 +4,12 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public Text timerText;
+    public Text finalTimeText;
 
     private float startTime;
     private float elapsedTime;
     private bool timerStarted;
     private bool isPaused;
-
     private float timeWhenPaused;
 
     private void Start()
@@ -78,5 +78,16 @@ public class Timer : MonoBehaviour
         int milliseconds = Mathf.FloorToInt((elapsedTime * 100f) % 100f);
 
         timerText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+    }
+
+    /// <summary>
+    /// Display the final time on the WinCanvas.
+    /// </summary>
+    public void Win()
+    {
+        if (finalTimeText != null)
+        {
+            finalTimeText.text = timerText.text;
+        }
     }
 }

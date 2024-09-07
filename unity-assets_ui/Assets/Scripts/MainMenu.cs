@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     /// <param name="level">The build index of the level to load.</param>
     public void LevelSelect(int level)
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(level + 1);
     }
 
     /// <summary>
