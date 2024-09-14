@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private float moveZ;
     private Vector3 InitialPosition;
     private bool isGrounded;
+    private Animator animator;
+    private float speed = 0.0f;
 
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         InitialPosition = transform.position;
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -30,6 +33,9 @@ public class PlayerController : MonoBehaviour
         Move();
         Jump();
         CheckFall();
+        float moveInput = Input.GetAxis("Vertical");
+        speed = Mathf.Abs(moveInput);
+        animator.SetFloat("Speed", speed);
     }
 
     void Move()
