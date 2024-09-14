@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 0.0f;
     private bool isJumping = false;
     private bool isFalling = false;
+    private bool isLanding = false;
 
     private void Awake()
     {
@@ -91,8 +92,10 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             isJumping = false;
             isFalling = false;
+            isLanding = true;  // Trigger Falling Flat Impact animation
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsFalling", false);
+            animator.SetBool("IsLanding", true);  // Play the Falling Flat Impact animation
         }
     }
 
@@ -101,6 +104,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            isLanding = false;
+            animator.SetBool("IsLanding", false);
         }
     }
 }
