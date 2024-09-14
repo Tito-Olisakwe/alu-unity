@@ -312,7 +312,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249668172}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &249668175
 Camera:
   m_ObjectHideFlags: 0
@@ -3387,6 +3387,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 635116811733347913, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2c0a1fafbecddc2469e3911382fd1f26, type: 2}
     - target: {fileID: 1165621985032495396, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3427,9 +3431,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3664626568755294028, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5430432379573749537, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159691841021357705, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6829535324356662042, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
       propertyPath: timerText
@@ -3439,6 +3451,10 @@ PrefabInstance:
       propertyPath: finalTimeText
       value: 
       objectReference: {fileID: 589288200}
+    - target: {fileID: 7593971050393863450, guid: 8d69b0e9e6d6b3447aac3da7c9409158, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

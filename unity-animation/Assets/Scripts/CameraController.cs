@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform Player;
-    private float AngleRotation = 45f;
+    public Transform Player;  // Reference to the player's transform
+    private float AngleRotation = 45f;  // Speed of camera rotation
 
-    private Vector3 DistanceApart = Vector3.zero;
+    private Vector3 Offset;  // Offset between the camera and the player
 
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
@@ -14,8 +14,10 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        DistanceApart = transform.position - Player.position;
+        // Calculate and store the offset distance between the camera and player
+        Offset = transform.position - Player.position;
 
+        // Get the inversion setting from PlayerPrefs
         if (PlayerPrefs.HasKey("isInverted"))
         {
             isInverted = PlayerPrefs.GetInt("isInverted") == 1;
@@ -26,16 +28,19 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        FollowPlayer();
+        // Rotate the camera around the player
         RotateAroundPlayer();
     }
 
+    // Rotates the camera around the player based on mouse input
     void RotateAroundPlayer()
     {
+        // Horizontal rotation using Mouse X
         rotationX += Input.GetAxis("Mouse X") * AngleRotation * Time.deltaTime;
 
+        // Vertical rotation using Mouse Y (inverted if necessary)
         if (isInverted)
         {
             rotationY += Input.GetAxis("Mouse Y") * AngleRotation * Time.deltaTime;
@@ -45,16 +50,16 @@ public class CameraController : MonoBehaviour
             rotationY -= Input.GetAxis("Mouse Y") * AngleRotation * Time.deltaTime;
         }
 
+        // Clamp vertical rotation to prevent the camera from flipping
+        rotationY = Mathf.Clamp(rotationY, -30f, 60f);
+
+        // Create a rotation quaternion based on the mouse input
         Quaternion rotation = Quaternion.Euler(rotationY, rotationX, 0);
-        transform.rotation = rotation;
 
-        transform.position = Player.position - (rotation * new Vector3(0, 0, 5));
+        // Apply the rotation while maintaining the offset distance from the player
+        transform.position = Player.position + rotation * Offset;
 
+        // Make the camera look at the player
         transform.LookAt(Player);
-    }
-
-    void FollowPlayer()
-    {
-        transform.position = Player.transform.position + DistanceApart;
     }
 }
