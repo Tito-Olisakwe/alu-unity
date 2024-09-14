@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private Animator animator;
     private float speed = 0.0f;
+    private bool isJumping = false;
 
     private void Awake()
     {
@@ -55,6 +56,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            isJumping = true;
+            animator.SetBool("IsJumping", true);
         }
     }
 
@@ -77,6 +80,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
         }
     }
 
