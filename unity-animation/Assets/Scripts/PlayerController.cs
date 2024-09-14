@@ -1,7 +1,4 @@
-
 using UnityEngine;
-
-
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,16 +13,17 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private float speed = 0.0f;
     private bool isJumping = false;
+    private bool isFalling = false;
 
     private void Awake()
     {
         InitialPosition = transform.position;
     }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        InitialPosition = transform.position;
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -34,17 +32,28 @@ public class PlayerController : MonoBehaviour
         Move();
         Jump();
         CheckFall();
+
         float moveInput = Input.GetAxis("Vertical");
         speed = Mathf.Abs(moveInput);
         animator.SetFloat("Speed", speed);
+
+        // Detect if player is falling
+        if (rb.velocity.y < 0 && !isGrounded)
+        {
+            isFalling = true;
+            animator.SetBool("IsFalling", true);
+        }
+        else
+        {
+            isFalling = false;
+            animator.SetBool("IsFalling", false);
+        }
     }
 
     void Move()
     {
-         moveX = Input.GetAxis("Horizontal");
-         moveZ = Input.GetAxis("Vertical");
-
-        
+        moveX = Input.GetAxis("Horizontal");
+        moveZ = Input.GetAxis("Vertical");
 
         Vector3 move = new Vector3(moveX, 0.0f, moveZ);
         rb.velocity = new Vector3(move.x * moveSpeed, rb.velocity.y, move.z * moveSpeed);
@@ -81,7 +90,9 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
+            isFalling = false;
             animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", false);
         }
     }
 
