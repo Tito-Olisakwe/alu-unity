@@ -14,7 +14,7 @@ AnimatorStateMachine:
     m_Position: {x: 388.38495, y: 69.77881, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7935602766378864163}
-    m_Position: {x: 569.13715, y: -7.9866943, z: 0}
+    m_Position: {x: 570, y: -10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -263,7 +263,7 @@ AnimatorStateTransition:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 
+  m_Name: FallingToImpact
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: IsLanding
