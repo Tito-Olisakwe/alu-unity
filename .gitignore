@@ -11,3 +11,5 @@
 .idea/
 .vscode/
 test
+/Assets/SamplesResources/AugmentationAssets/Models/Astronaut.FBX
+/Packages/com.ptc.vuforia.engine-*.tgz
